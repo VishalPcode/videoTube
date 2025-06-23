@@ -1,10 +1,22 @@
+import { Route, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Sidebar from "./components/Sidebar";
+import Myprofile from "./components/Myprofile";
+import Login from "./components/Login";
+import Register from "./components/Register";
+
 function App() {
   return (
     <>
-      <h1 className="text-3xl font-bold text-center bg-amber-500 rounded p-4 m-4">
-        my Tailwind is working
-      </h1>
-    </>
+    <Navbar />
+    <Routes>
+      <Route path="/" element={<Sidebar />} />
+      <Route path="/profile" element={<Myprofile />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+    </Routes>
+    {/* <Sidebar /> */}
+  </>
   );
 }
 

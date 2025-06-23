@@ -38,11 +38,11 @@ const userSchema = new Schema(
     coverImage: {
       url: {
         type: String,
-        required: true,
+      
       },
       publicId: {
         type: String,
-        required: true,
+      
       },
     },
     watchHistory: {
