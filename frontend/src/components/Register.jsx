@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useRef } from "react";
+
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -9,6 +11,7 @@ function Register() {
     avatar: null,
     coverImage: null,
   });
+  const formRef = useRef(null);
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -19,43 +22,49 @@ function Register() {
     }
   };
 
- const handleSubmit = async (e) => {
-  e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  const data = new FormData();
-  Object.entries(formData).forEach(([key, value]) => {
-    if (value) data.append(key, value);
-  });
-
-  try {
-    const res = await fetch("http://localhost:8000/api/v1/users/register", {
-      method: "POST",
-      body: data,
+    const data = new FormData();
+    Object.entries(formData).forEach(([key, value]) => {
+      if (value) data.append(key, value);
     });
 
-    const text = await res.text(); // <-- use text first
-    let result;
-
     try {
-      result = JSON.parse(text);
-    } catch (err) {
-      console.error("Response is not valid JSON:", text);
-      alert("Unexpected server response. Please check backend logs.");
-      return;
-    }
+      const res = await fetch("http://localhost:8000/api/v1/users/register", {
+        method: "POST",
+        body: data,
+      });
 
-    if (res.ok) {
-      alert("User registered successfully!");
-      console.log(result);
-    } else {
-      alert(result?.message || "Registration failed");
-    }
-  } catch (error) {
-    alert("Network or server error");
-    console.error("Fetch error:", error);
-  }
-};
+      const text = await res.text(); // <-- use text first
+      let result;
 
+      try {
+        result = JSON.parse(text);
+      } catch (err) {
+        console.error("Response is not valid JSON:", text);
+        alert("Unexpected server response. Please check backend logs.");
+        return;
+      }
+
+
+      if (res.status === 409){
+        alert("User already exists. Please try a different email or username.");
+        return;
+      }
+
+      if (res.ok) {
+        alert("User registered successfully!");
+        console.log(result);
+        formRef.current.reset();
+      } else {
+        alert(result?.message || "Registration failed");
+      }
+    } catch (error) {
+      alert("Network or server error");
+      console.error("Fetch error:", error);
+    }
+  };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-950 px-4 py-4">
@@ -63,6 +72,7 @@ function Register() {
         onSubmit={handleSubmit}
         className="w-full max-w-md bg-gray-900 text-white p-8 rounded-2xl shadow-xl space-y-3"
         encType="multipart/form-data"
+        ref={formRef}
       >
         <h2 className="text-3xl font-bold text-indigo-500 text-center">
           Create Account
@@ -141,7 +151,7 @@ function Register() {
 
         <button
           type="submit"
-          className="w-full bg-indigo-600 hover:bg-indigo-700 py-1 rounded-lg font-semibold transition"
+          className="w-full bg-indigo-600 hover:bg-indigo-700 py-1 rounded-lg font-semibold transition cursor-pointer text-white"
         >
           Register
         </button>

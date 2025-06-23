@@ -38,11 +38,9 @@ const userSchema = new Schema(
     coverImage: {
       url: {
         type: String,
-      
       },
       publicId: {
         type: String,
-      
       },
     },
     watchHistory: {
@@ -52,7 +50,7 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: [true, "Password is required"],
-      minlength: 6,
+      minlength: 5,
     },
     refreshToken: {
       type: String,
