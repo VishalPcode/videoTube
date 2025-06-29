@@ -5,12 +5,17 @@ import { FiHome, FiUser, FiSettings, FiChevronLeft, FiChevronRight } from 'react
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [item, setItem] = useState({ label: '' });
 
   const menuItems = [
     { icon: <FiHome />, label: 'Home' },
     { icon: <FiUser />, label: 'Profile' },
     { icon: <FiSettings />, label: 'Settings' },
   ];
+
+  const handleItemClick = (label) => {
+    setItem({ label });
+  };
 
   return (
     <div className={`flex h-screen bg-gray-100`}>
@@ -33,10 +38,10 @@ const Sidebar = () => {
             <li
               key={index}
               className="flex items-center space-x-3 p-2 rounded cursor-pointer hover:bg-red-600 hover:text-amber-50 transition-colors duration-200"
-              onClick={() => console.log(`${item.label} clicked`)}
+              onClick={handleItemClick.bind(null, item.label)}
             >
               <span className="text-xl text-amber-50 ">{item.icon}</span>
-              {isOpen && <span className="text-sm text-amber-50">{item.label}</span>}
+              {isOpen && <span className="text-sm text-amber-50"> {item.label}</span>}
             </li>
           ))}
         </ul>
@@ -44,6 +49,9 @@ const Sidebar = () => {
 
       {/* Main content placeholder */}
       <div className="flex-1 p-6 bg-gray-950">
+        <h2 className="text-2xl font-bold text-white">
+          {isOpen ? item.label : ''}
+        </h2>
       </div>
     </div>
   );

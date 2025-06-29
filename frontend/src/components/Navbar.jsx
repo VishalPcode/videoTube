@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import { FaBars, FaTimes, FaUserCircle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
-
+import React, { useState } from "react";
+import { FaBars, FaTimes, FaUserCircle } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,20 +12,22 @@ function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <span className="text-xl text-indigo-500">videoTube</span>
+            <Link to="/" className="text-xl text-indigo-500 font-bold hover:text-indigo-400">
+              videoTube
+            </Link>
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-6">
-            <Link to="/" className="hover:text-indigo-400">Home</Link>
-            <Link to="/about" className="hover:text-indigo-400">About</Link>
-            <Link to="/contact" className="hover:text-indigo-400">Contact</Link>
-          </div>
+          <div className="hidden md:flex space-x-6"></div>
 
           {/* Profile / Auth */}
           <div className="hidden md:flex items-center space-x-4">
-            <Link to="/login" className="hover:text-indigo-400">Login</Link>
-            <Link to="/register" className="hover:text-indigo-400">Register</Link>
+            <Link to="/login" className="hover:text-indigo-400">
+              Login
+            </Link>
+            <Link to="/register" className="hover:text-indigo-400">
+              Register
+            </Link>
             <FaUserCircle className="text-xl" />
           </div>
 
@@ -42,11 +43,12 @@ function Navbar() {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-gray-800 px-4 py-3 space-y-2">
-          <Link to="/" className="block hover:text-indigo-400">Home</Link>
-          <Link to="/about" className="block hover:text-indigo-400">About</Link>
-          <Link to="/contact" className="block hover:text-indigo-400">Contact</Link>
-          <Link to="/login" className="block hover:text-indigo-400">Login</Link>
-          <Link to="/register" className="block hover:text-indigo-400">Register</Link>
+          <Link to="/login" className="block hover:text-indigo-400">
+            Login
+          </Link>
+          <Link to="/register" className="block hover:text-indigo-400">
+            Register
+          </Link>
         </div>
       )}
     </nav>
