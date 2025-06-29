@@ -90,7 +90,6 @@ const registerUser = asyncHandler(async (req, res) => {
     .json(new ApiResponse(201, "User created successfully", createdUser));
 });
 
-
 const loginUser = asyncHandler(async (req, res) => {
   const { email, username, password } = req.body;
 
@@ -244,10 +243,18 @@ const changeCurrentPassword = asyncHandler(async (req, res) => {
 });
 
 const getCurrentUser = asyncHandler(async (req, res) => {
+  if (!req.user) {
+    return res.status(401).json({
+      success: false,
+      message: "Not authenticated",
+    });
+  }
+
   return res
     .status(200)
     .json(new ApiResponse(200, "Current user fetched successfully", req.user));
 });
+
 
 const updateAccountDetails = asyncHandler(async (req, res) => {
   const { fullName, email } = req.body;
@@ -335,5 +342,5 @@ export {
   getCurrentUser,
   updateAccountDetails,
   updateUserAvatar,
-  updateUserCoverimage
+  updateUserCoverimage,
 };
