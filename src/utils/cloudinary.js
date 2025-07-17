@@ -7,13 +7,13 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-const uploadOnCloudinary = async (localFilepath) => {
+const uploadOnCloudinary = async (localFilepath, resourceType = "auto") => {
   try {
     if (!localFilepath) return null;
 
     const response = await cloudinary.uploader.upload(localFilepath, {
-      resource_type: "auto",
-      folder: "user-avatars", // optional but good for organization
+      resource_type: resourceType,
+      folder: "user-uploads",
     });
 
     // Remove local file after successful upload
@@ -26,6 +26,7 @@ const uploadOnCloudinary = async (localFilepath) => {
     return {
       url: response.secure_url,
       public_id: response.public_id,
+      duration: response.duration,
     };
   } catch (error) {
     // Remove local file even if upload failed

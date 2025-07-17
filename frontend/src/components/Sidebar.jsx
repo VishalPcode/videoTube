@@ -1,8 +1,9 @@
   // src/components/Sidebar.jsx
 
   import React, { useState } from 'react';
-  import { FiHome, FiUser, FiSettings, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+  import { FiHome, FiUser, FiSettings, FiChevronLeft, FiChevronRight, FiPlus } from 'react-icons/fi';
   import MyProfile from './Myprofile';
+  import AddVideo from './AddVideo';
 
   const Sidebar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -11,7 +12,7 @@
     const menuItems = [
       { icon: <FiHome />, label: 'Home' },
       { icon: <FiUser />, label: 'Profile' },
-      { icon: <FiSettings />, label: 'Settings' },
+      { icon: <FiPlus />, label: 'Add Video' },
     ];
 
     const handleItemClick = (label) => {
@@ -54,10 +55,11 @@
             {isOpen ? item.label : ''}
           </h2> */}
          {item.label === 'Profile' && <MyProfile />}
+         {item.label ===  'Add Video' &&  <AddVideo />}
 
         </div>
       </div>
-    );
+    );  
   };
 
   export default Sidebar;

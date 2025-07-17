@@ -13,7 +13,7 @@ useEffect(() => {
   const checkAuth = async () => {
     try {
       const res = await fetch("http://localhost:8000/api/v1/users/getuser", {
-        credentials: "include", // 👉 Must send cookie!
+        credentials: "include", // 
       });
 
       if (res.ok) {
