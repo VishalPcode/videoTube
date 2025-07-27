@@ -59,4 +59,14 @@ console.log("Thumbnail Cloudinary result:", thumbnailResult);
   });
 });
 
-export { uploadVideo };
+const getMyVideos = asyncHandler(async (req, res) => {
+  const userId = req.user._id; // Logged-in user's ID
+  const videos = await Video.find({ owner: userId }).sort({ createdAt: -1 });
+  res.status(200).json({
+    success: true,
+    videos,
+  });
+});
+
+
+export { uploadVideo, getMyVideos };

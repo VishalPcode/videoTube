@@ -59,13 +59,13 @@ function AddVideo() {
     }
   };
 
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center min-h-screen bg-gray-950 text-white">
-        Loading...
-      </div>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <div className="flex items-center justify-center min-h-screen bg-gray-950 text-white">
+  //       Loading...
+  //     </div>
+  //   );
+  // }
 
   if (error) {
     return (
