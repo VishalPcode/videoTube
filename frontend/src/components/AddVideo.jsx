@@ -1,5 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
+<<<<<<< HEAD
   import API_BASE_URL from "../apiURL";
+=======
+>>>>>>> bb137af (Refactor AddVideo component for improved login handling and UI updates)
 
 function AddVideo() {
   const [formData, setFormData] = useState({
