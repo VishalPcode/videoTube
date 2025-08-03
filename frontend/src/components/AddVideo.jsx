@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+  import API_BASE_URL from "../apiURL";
 
 function AddVideo() {
   const [formData, setFormData] = useState({
@@ -40,7 +41,7 @@ function AddVideo() {
     });
 
     try {
-      const res = await fetch("http://localhost:8000/api/v1/videos/addvideo", {
+      const res = await fetch(`${API_BASE_URL}/api/v1/videos/addvideo`, {
         method: "POST",
         body: data,
         credentials: "include",

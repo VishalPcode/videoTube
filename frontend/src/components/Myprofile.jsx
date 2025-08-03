@@ -1,4 +1,6 @@
   import React, { useEffect, useState } from "react";
+  import { useNavigate } from "react-router-dom";
+  import API_BASE_URL from "../apiURL";
 
   function MyProfile() {
     const [user, setUser] = useState(null);
@@ -13,7 +15,7 @@
     useEffect(() => {
       const fetchUser = async () => {
         try {
-          const res = await fetch("http://localhost:8000/api/v1/users/getuser", {
+          const res = await fetch(`${API_BASE_URL}/api/v1/users/getuser`, {
             credentials: "include",
           });
 
@@ -49,7 +51,7 @@
 
       try {
         const res = await fetch(
-          "http://localhost:8000/api/v1/users/update-account",
+          `${API_BASE_URL}/api/v1/users/update-account`,
           {
             method: "PUT",
             headers: { "Content-Type": "application/json" },

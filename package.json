@@ -4,9 +4,11 @@
   "description": "",
   "type": "module",
   "main": "index.js",
-  "scripts": {
-    "dev": "concurrently -n BACKEND,FRONTEND -c red,green \"nodemon -r dotenv/config --experimental-json-modules src/index.js\" \"npm run dev --prefix frontend\""
-  },
+ "scripts": {
+  "dev": "nodemon index.js",
+  "start": "node index.js"
+},
+
   "keywords": [
     "javaScript",
     "backend"
