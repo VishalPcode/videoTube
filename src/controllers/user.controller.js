@@ -126,7 +126,7 @@ const loginUser = asyncHandler(async (req, res) => {
   const cookieOptions = {
     httpOnly: true,
     secure: false, // ✅ Use true only in production with HTTPS
-    sameSite: "Lax",
+    sameSite: "None",
   };
 
   return res
@@ -254,7 +254,6 @@ const getCurrentUser = asyncHandler(async (req, res) => {
     .status(200)
     .json(new ApiResponse(200, "Current user fetched successfully", req.user));
 });
-
 
 const updateAccountDetails = asyncHandler(async (req, res) => {
   const { fullName, email } = req.body;
