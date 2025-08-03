@@ -5,12 +5,10 @@ import cookieParser from "cookie-parser";
 const app = express();
 
 // CORS middleware
-app.use(
-  cors({
-    origin: process.env.FRONTEND_URL,
-    credentials: true,
-  })
-);
+app.use(cors({
+  origin: "https://desivibe.netlify.app", // your frontend URL
+  credentials: true
+}));
 
 // Core middlewares
 app.use(express.json({ limit: "16kb" }));
