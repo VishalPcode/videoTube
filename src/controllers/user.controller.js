@@ -125,7 +125,7 @@ const loginUser = asyncHandler(async (req, res) => {
 
   const cookieOptions = {
     httpOnly: true,
-    secure: false, // ✅ Use true only in production with HTTPS
+    secure: true, // ✅ Use true only in production with HTTPS
     sameSite: "None",
   };
 
