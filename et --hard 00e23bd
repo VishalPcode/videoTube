@@ -1,0 +1,26 @@
+[33m2a24f39[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Refactor CORS middleware to use allowed origins array for improved security
+[33m2cfb11c[m Update loginUser cookie settings to enforce secure flag
+[33m201de6a[m Update cookie settings for loginUser to allow cross-site requests
+[33meeefe93[m Update CORS middleware to use a hardcoded frontend URL
+[33m00e23bd[m updated
+[33mbb137af[m Refactor AddVideo component for improved login handling and UI updates
+[33m0780bae[m Add search functionality to video list and improve video hover behavior
+[33mc3407f1[m get all videos of  user is logged in
+[33m8e88d7a[m Implement video upload feature with form handling and Cloudinary integration
+[33mb7eea9e[m  video upload functionality with validation and Cloudinary integration
+[33medbba2f[m Enhance user profile management with fetching and updating functionality
+[33m628eed0[m Enhance user authentication and profile management with login, logout, and user fetching functionality
+[33m209590a[m Enhance user authentication with login functionality and error handling
+[33m2d6d457[m Update registration form to include form reference and improve error handling
+[33m9ad4f39[m feat: Implement user authentication flow with registration and login components
+[33meb63167[m Frontend Setup done with some user controller
+[33m16a1ff8[m mplement user account management features including password change, user details update, and avatar/cover image upload
+[33m5dab437[m  create subscription model for user channel subscriptions
+[33m5f67659[m feat: add JWT verification middleware for user authentication
+[33m38beb9e[m User created in mongo db atlas with cloudinary images
+[33mb23fb1e[m all setup configured
+[33m7562002[m Add user and video Model
+[33m996b8fe[m Utils for errors , api response
+[33m5a17a94[m connected to Mongo DB Atlas
+[33m6e90288[m project setup
+[33md79f3e9[m Initial commit

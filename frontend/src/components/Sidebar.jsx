@@ -41,7 +41,7 @@ const Sidebar = () => {
           )}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-xl text-white  "
+            className="text-xl text-white  cursor-pointer"
           >
             {isOpen ? <FiChevronLeft /> : <FiChevronRight />}
           </button>
