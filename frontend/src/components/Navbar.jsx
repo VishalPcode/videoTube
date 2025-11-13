@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FaBars, FaTimes, FaUserCircle } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import API_BASE_URL from "../apiURL";
 function Navbar({ isLoggedIn, setIsLoggedIn }) {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
@@ -12,7 +11,7 @@ function Navbar({ isLoggedIn, setIsLoggedIn }) {
 useEffect(() => {
   const checkAuth = async () => {
     try {
-      const res = await fetch(`${API_BASE_URL}/api/v1/users/getuser`, {
+      const res = await fetch(`http://localhost:8000/api/v1/users/getuser`, {
         credentials: "include", // Include cookies for authentication
       });
 
@@ -36,7 +35,7 @@ useEffect(() => {
 
   const handleLogout = async () => {
     try {
-      const res = await fetch(`${API_BASE_URL}/api/v1/users/logout`, {
+      const res = await fetch(`http://localhost:8000/api/v1/users/logout`, {
         method: "POST",
         credentials: "include",
       });

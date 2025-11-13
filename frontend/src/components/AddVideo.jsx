@@ -1,8 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-<<<<<<< HEAD
-  import API_BASE_URL from "../apiURL";
-=======
->>>>>>> bb137af (Refactor AddVideo component for improved login handling and UI updates)
 
 function AddVideo() {
   const [formData, setFormData] = useState({
@@ -44,7 +40,7 @@ function AddVideo() {
     });
 
     try {
-      const res = await fetch(`${API_BASE_URL}/api/v1/videos/addvideo`, {
+      const res = await fetch(`http://localhost:8000/api/v1/videos/addvideo`, {
         method: "POST",
         body: data,
         credentials: "include",

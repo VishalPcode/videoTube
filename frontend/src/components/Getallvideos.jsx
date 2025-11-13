@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from "react";
-import API_BASE_URL from "../apiURL";
 
 function Getallvideos() {
   const [videos, setVideos] = useState([]);
@@ -8,7 +7,7 @@ function Getallvideos() {
   useEffect(() => {
     const fetchVideos = async () => {
       try {
-        const response = await fetch(`${API_BASE_URL}/api/v1/videos/my-videos`, {
+        const response = await fetch(`http://localhost:8000/api/v1/videos/my-videos`, {
           credentials: "include", // for cookie-based auth
         });
         if (!response.ok) throw new Error("Failed to fetch videos");

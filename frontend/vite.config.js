@@ -8,6 +8,6 @@ import { FlatESLint } from "eslint/use-at-your-own-risk";
 export default defineConfig({
   plugins: [tailwindcss(), react()],
    server: {
-    open: false
+    open: true,
   },
 });

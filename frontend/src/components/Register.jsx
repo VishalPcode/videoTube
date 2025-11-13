@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { useRef } from "react";
-import API_BASE_URL from "../apiURL";
-
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -32,7 +30,7 @@ function Register() {
     });
 
     try {
-      const res = await fetch(`${API_BASE_URL}/api/v1/users/register`, {
+      const res = await fetch(`http://localhost:8000/api/v1/users/register`, {
         method: "POST",
         body: data,
       });
